@@ -20,9 +20,9 @@ describe('Sign Up', () => {
             .should('have.value', 'git-it')
 
         cy.get('input[type="submit"]')
-            .click().then(() => {
-                cy.get('li')
-                    .should('contain', 'Some Name - some@email.com - core - git-it')
-            })
+            .click()
+
+        cy.get('li', { timeout: 10000 }).should('be.visible')
+            .and('contain', 'Some Name - some@email.com - core - git-it')
     })
 })
